@@ -23,7 +23,7 @@ export default function Item(props: {
   const [checked, setChecked] = React.useState([0]);
 
   const getTodo = async () => {
-    const res = await fetch("http://localhost:3000/api/todos");
+    const res = await fetch("https://8-8-dars2.vercel.app/api/todos");
     const data = await res.json();
 
     props.SetTodo(data);
@@ -47,7 +47,7 @@ export default function Item(props: {
     setChecked(newChecked);
   };
   const handleDelate = async (idd: number) => {
-    const res = await fetch("http://localhost:3000/api/todos/" + idd, {
+    const res = await fetch("https://8-8-dars2.vercel.app/api/todos/" + idd, {
       method: "DELETE",
     });
     getTodo();

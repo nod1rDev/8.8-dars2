@@ -10,7 +10,7 @@ function TodoList(props: { setData: any; Data: any }) {
   const [value2, setValue2] = useState("");
 
   const getTodo = async () => {
-    const res = await fetch("http://localhost:3000/api/todos");
+    const res = await fetch("https://8-8-dars2.vercel.app/api/todos");
     const data = await res.json();
 
     props.setData(data);
@@ -26,7 +26,7 @@ function TodoList(props: { setData: any; Data: any }) {
   const HandleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!edit) {
-      await fetch("http://localhost:3000/api/todos", {
+      await fetch("https://8-8-dars2.vercel.app/api/todos", {
         method: "POST",
         body: JSON.stringify({
           text: value,
@@ -40,7 +40,7 @@ function TodoList(props: { setData: any; Data: any }) {
     } else {
       setValue(value2);
 
-      const res = await fetch("http://localhost:3000/api/todos/" + ID, {
+      const res = await fetch("https://8-8-dars2.vercel.app/api/todos/" + ID, {
         method: "PUT",
         body: JSON.stringify({
           text: value,
